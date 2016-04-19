@@ -1,26 +1,23 @@
 /*****************************************************************************/
-/* Home: Event Handlers */
+/* CreateQuestion: Event Handlers */
 /*****************************************************************************/
-Template.Home.events({
+Template.CreateQuestion.events({
 });
 
 /*****************************************************************************/
-/* Home: Helpers */
+/* CreateQuestion: Helpers */
 /*****************************************************************************/
-Template.Home.helpers({
-  questions: function() {
-    return Questions.find();
-  }
+Template.CreateQuestion.helpers({
 });
 
 /*****************************************************************************/
-/* Home: Lifecycle Hooks */
+/* CreateQuestion: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Home.onCreated(function () {
+Template.CreateQuestion.onCreated(function () {
 });
 
-Template.Home.onRendered(function () {
+Template.CreateQuestion.onRendered(function () {
 });
 
-Template.Home.onDestroyed(function () {
+Template.CreateQuestion.onDestroyed(function () {
 });
