@@ -13,7 +13,7 @@ Template.Challenge.events({
 
     if(answerVar != correct){
       console.log(correct);
-    }else if (Score.findOne({team_id:user})) {
+    }else if (Score.findOne({team_id:user},{challenge_id:question_id})) {
       console.log("A recored has already been created!")
     }else{
       console.log("You got it right!");
