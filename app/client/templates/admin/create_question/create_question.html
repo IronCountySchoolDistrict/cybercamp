@@ -1,8 +1,12 @@
 <template name="CreateQuestion">
   <div class="create-question">
-    <div class="container">
+
+    {{#if isInRole 'admin'}}
       <h1>Create Question</h1>
       {{> quickForm collection="Questions" id="insertQuestionForm" type="insert" buttonContent="Submit"}}
-    </div>
+    {{else}}
+      This is not where you belong!
+    {{/if}}
+
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template name="Register">
   <div class="register">
-    <div class="container">
+    {{#if isInRole 'admin'}}
       <h1>Register</h1>
       <form class="register">
         <div class="form-group">
@@ -20,6 +20,8 @@
         </div>
         <input class="btn btn-success" type="submit" value="Register">
       </form>
-    </div>
+    {{else}}
+      You do not belong here!
+    {{/if}}
   </div>
 </template>

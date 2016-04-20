@@ -34,7 +34,7 @@ Template.Register.events({
         }else{
           Meteor.call('defaultRole', userId);
         }
-        Router.go('login');
+        Router.go('register');
       });
 
     /*if(role === 'admin'){
