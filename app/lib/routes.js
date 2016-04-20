@@ -12,15 +12,15 @@ Router.route('/', {
   where: 'client'
 });
 
-Router.route('/:_id', {
-  name: 'challenge',
-  controller: 'QuestionsController',
-  where: 'client'
-});
-
 Router.route('/login', {
   name: 'login',
   controller: 'LoginController',
+  where: 'client'
+});
+
+Router.route('/:_id', {
+  name: 'challenge',
+  controller: 'QuestionsController',
   where: 'client'
 });
 

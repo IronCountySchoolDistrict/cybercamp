@@ -12,17 +12,18 @@ Template.Challenge.events({
     var answerVar = event.target.answer.value;
 
     if(answerVar != correct){
-      console.log(correct);
+      Router.go('failure');
     }else if (Score.findOne({team_id:user},{challenge_id:question_id})) {
       console.log("A recored has already been created!")
+      Router.go('completed');
     }else{
-      console.log("You got it right!");
       Score.insert({
         team_id: user,
         challenge_id: question_id,
         score: points,
         submited: new Date(),
       });
+      Router.go('success');
     };
   }
 });

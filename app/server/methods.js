@@ -3,7 +3,11 @@
 /*****************************************************************************/
 
 Meteor.methods({
-  'server/method_name': function () {
-    // server method logic
+  'adminRole': function (userId) {
+    Roles.setUserRoles(userId, 'admin');
+  },
+
+  'defaultRole': function (userId) {
+    Roles.setUserRoles(userId, 'student');
   }
 });

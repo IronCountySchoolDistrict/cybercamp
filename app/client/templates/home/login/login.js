@@ -8,6 +8,11 @@ Template.Login.events({
     var password = event.target.logPassword.value;
     Meteor.loginWithPassword(user,password);
     Router.go('home');
+  },
+  'click #logout': function(event){
+    event.preventDefault();
+    Meteor.logout();
+    Router.go('login');
   }
 });
 

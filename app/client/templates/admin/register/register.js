@@ -6,11 +6,42 @@ Template.Register.events({
     event.preventDefault();
     var userVar = event.target.regUser.value;
     var passwordVar = event.target.regPassword.value;
-    Accounts.createUser({
-      username: userVar,
-      password: passwordVar
-    });
-    Router.go('admin');
+    var role = event.target.regRole.value;
+
+    var _createUserAsync = function(userVar, passwordVar) {
+      return new Promise((resolve, reject) => {
+        Accounts.createUser({
+          username: userVar,
+          password: passwordVar
+        },
+        function(error,result){
+          if(error){
+            console.log(error.reason);
+            reject(error.reason);
+          }else{
+            var userId = Meteor.userId();
+            resolve(userId);
+          }
+        })
+
+      });
+    };
+
+    _createUserAsync(userVar, passwordVar)
+      .then(userId => {
+        if(role === 'admin'){
+          Meteor.call('adminRole', userId);
+        }else{
+          Meteor.call('defaultRole', userId);
+        }
+        Router.go('login');
+      });
+
+    /*if(role === 'admin'){
+      Roles.setUserRoles(userId, 'admin');
+    }else{
+      Roles.setUserRoles(userId, 'student');
+    }*/
   }
 });
 
@@ -18,6 +49,7 @@ Template.Register.events({
 /* Register: Helpers */
 /*****************************************************************************/
 Template.Register.helpers({
+
 });
 
 /*****************************************************************************/
