@@ -4,11 +4,14 @@
       <h1>Edit: {{title}}</h1>
       <hr>
       {{> quickForm collection="Questions" doc=this id="editQuestionForm" type="update" buttonContent="Update"}}
-      <div class="btn-align pull-right">
-      {{> quickRemoveButton collection="Questions" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+      <div class="btn-align">
+        <a href="/" class="btn btn-danger">Cancel</a>
+        <span class="pull-right">
+          {{> quickRemoveButton collection="Questions" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+        </span>
       </div>
     {{else}}
-      You are in the wrong spot
+      {{> NotFound}}
     {{/if}}
   </div>
 </template>

@@ -20,9 +20,10 @@
           </select>
         </div>
         <input class="btn btn-success" type="submit" value="Register">
+        <a href="/" class="btn btn-danger">Cancel</a>
       </form>
     {{else}}
-      You do not belong here!
+      {{> NotFound}}
     {{/if}}
   </div>
 </template>

@@ -10,6 +10,11 @@ Template.Home.events({
 Template.Home.helpers({
   questions: function() {
     return Questions.find();
+  },
+  answered: function() {
+    var user = Meteor.userId();
+    var question_id = this._id;
+    return Score.findOne({team_id:user},{challenge_id:question_id});
   }
 });
 

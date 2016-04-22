@@ -4,7 +4,9 @@
         <p>Login successful!</p>
           <ul>
           {{#each questions}}
+            {{#unless answered}}
               <li>{{#linkTo route="challenge"}}{{title}}{{/linkTo}}</li>
+            {{/unless}}
           {{/each}}
           </ul>
       {{else}}

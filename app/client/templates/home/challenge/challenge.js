@@ -32,6 +32,11 @@ Template.Challenge.events({
 /* Challenge: Helpers */
 /*****************************************************************************/
 Template.Challenge.helpers({
+  answered: function() {
+    var user = Meteor.userId();
+    var question_id = this._id;
+    return Score.findOne({team_id:user},{challenge_id:question_id});
+  }
 });
 
 /*****************************************************************************/

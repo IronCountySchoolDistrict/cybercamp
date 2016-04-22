@@ -18,8 +18,20 @@ Router.route('/login', {
   where: 'client'
 });
 
-Router.route('/:_id', {
+Router.route('/challenge/:_id', {
   name: 'challenge',
+  controller: 'QuestionsController',
+  where: 'client'
+});
+
+Router.route('/test/success', {
+  name: 'success',
+  controller: 'QuestionsController',
+  where: 'client'
+});
+
+Router.route('/test/failure', {
+  name: 'failure',
   controller: 'QuestionsController',
   where: 'client'
 });

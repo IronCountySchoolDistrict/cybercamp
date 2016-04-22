@@ -5,6 +5,7 @@
     {{#markdown}}
       {{question}}
     {{/markdown}}
+    {{#unless answered}}
     <hr>
     <form class="submit-answer">
       <div class="form-group">
@@ -14,6 +15,7 @@
       <input class="btn btn-success" type=submit value="Submit">
       <a href="/" class="btn btn-danger">Cancel</a>
     </form>
+    {{/unless}}
     {{#if isInRole 'admin'}}
       <div class="edit-align">
         <a class="btn btn-danger pull-right" href="/admin/edit/{{_id}}">Edit</a>
