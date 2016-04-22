@@ -9,6 +9,7 @@
       {{#if isInRole 'admin'}}
         Admin:
         <div class="btn-group button-align" role="group">
+          <button class="btn btn-link">{{#linkTo route="home"}}Home{{/linkTo}}</button>
           <button class="btn btn-link">{{#linkTo route="createQuestion"}}Create{{/linkTo}}</button>
           <button class="btn btn-link">{{#linkTo route="register"}}Register{{/linkTo}}</button>
           <button class="btn btn-link logout">Logout</button>
@@ -16,16 +17,19 @@
       {{else}}
         User:
         <div class="btn-group button-align" role="group">
+          <button class="btn btn-link">{{#linkTo route="home"}}Home{{/linkTo}}</button>
           <button class="btn btn-link logout">Logout</button>
         </div>
       {{/if}}
     {{/if}}
   </div>
   <div class="container">
-    {{#if currentUser}}
-      {{> yield}}
-    {{else}}
-      {{> Login}}
-    {{/if}}
+    <div class="app-header">
+      {{#if currentUser}}
+        {{> yield}}
+      {{else}}
+        {{> Login}}
+      {{/if}}
+    </div>
   </div>
 </template>

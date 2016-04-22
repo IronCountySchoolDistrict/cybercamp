@@ -36,3 +36,10 @@ Router.route('/admin/create', {
   action: 'create',
   where: 'client'
 });
+
+Router.route('/admin/edit/:_id', {
+  name:'editQuestion',
+  controller: 'QuestionsController',
+  action: 'edit',
+  where: 'client'
+});

@@ -30,6 +30,9 @@ QuestionsController = RouteController.extend({
   create: function () {
     this.render('CreateQuestion', {});
   },
+  edit: function () {
+    this.render('EditQuestion', {});
+  },
   list: function () {
     this.render('Home', {});
   },

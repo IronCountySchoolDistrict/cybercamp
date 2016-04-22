@@ -1,3 +1,12 @@
+body {
+  background-color: #e6f2ff;
+}
+
+hr {
+  border-width: 2px;
+  border-color: black;
+}
+
 .page-header{
   position: relative;
   padding: 30px 15px;

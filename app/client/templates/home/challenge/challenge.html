@@ -1,15 +1,23 @@
 <template name="Challenge">
   <div class="challenge">
-    <div class="container">
-      <p>{{title}}</p>
-      <p>{{question}}</p>
-      <form class="submit-answer">
-        <div class="form-group">
-          <label for="answer-input">Answer</label>
-          <input type="text" class="form-control" name="answer" placeholder="Type your answer here" id="answer-input">
-        </div>
-        <input class="btn btn-success" type=submit value="Submit">
-      </form>
-    </div>
+    <h2>Challenge: {{title}}</h2>
+    <hr>
+    {{#markdown}}
+      {{question}}
+    {{/markdown}}
+    <hr>
+    <form class="submit-answer">
+      <div class="form-group">
+        <label for="answer-input">Answer</label>
+        <input type="text" class="form-control" name="answer" placeholder="Type your answer here" id="answer-input">
+      </div>
+      <input class="btn btn-success" type=submit value="Submit">
+      <a href="/" class="btn btn-danger">Cancel</a>
+    </form>
+    {{#if isInRole 'admin'}}
+      <div class="edit-align">
+        <a class="btn btn-danger pull-right" href="/admin/edit/{{_id}}">Edit</a>
+      </div>
+    {{/if}}
   </div>
 </template>

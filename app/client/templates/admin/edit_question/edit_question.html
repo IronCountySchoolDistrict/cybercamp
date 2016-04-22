@@ -1,0 +1,14 @@
+<template name="EditQuestion">
+  <div class="edit-question">
+    {{#if isInRole 'admin'}}
+      <h1>Edit: {{title}}</h1>
+      <hr>
+      {{> quickForm collection="Questions" doc=this id="editQuestionForm" type="update" buttonContent="Update"}}
+      <div class="btn-align pull-right">
+      {{> quickRemoveButton collection="Questions" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+      </div>
+    {{else}}
+      You are in the wrong spot
+    {{/if}}
+  </div>
+</template>
