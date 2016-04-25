@@ -14,7 +14,24 @@ Template.Home.helpers({
   answered: function() {
     var user = Meteor.userId();
     var question_id = this._id;
-    return Score.findOne({team_id:user},{challenge_id:question_id});
+    var record = Score.findOne({$and:[{challenge_id:question_id},{team_id:user}]});
+    return record;
+  },
+  totalPoints: function() {
+    var user = Meteor.userId();
+    var record = Score.find({team_id:user}).fetch();
+    return record.reduce(function(previous, current){
+      return previous+current.score;
+    }, 0);
+  },
+  questionsDone: function() {
+    var user = Meteor.userId();
+    var record = Score.find({team_id:user}).fetch();
+    return record.length;
+  },
+  questionsTotal: function() {
+    var record = Questions.find().fetch();
+    return record.length;
   }
 });
 

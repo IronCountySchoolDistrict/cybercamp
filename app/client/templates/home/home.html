@@ -1,16 +1,20 @@
 <template name="Home">
   <div class="home">
-      {{#if currentUser}}
-        <p>Login successful!</p>
-          <ul>
-          {{#each questions}}
-            {{#unless answered}}
-              <li>{{#linkTo route="challenge"}}{{title}}{{/linkTo}}</li>
-            {{/unless}}
-          {{/each}}
-          </ul>
-      {{else}}
-        <p>Login Failed</p>
-      {{/if}}
+    <h2>Challenges:</h2>
+    <p>Questions Completed: {{questionsDone}}/{{questionsTotal}}
+      <span class="pull-right">Score: {{totalPoints}}</span>
+    </p>
+    <hr>
+      {{#each questions}}
+        {{#unless answered}}
+          <div class="list-group">
+            <a href="/challenge/{{_id}}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{title}}
+                <span class="pull-right">+{{points}}</span>
+              </h4>
+            </a>
+          </div>
+        {{/unless}}
+      {{/each}}
   </div>
 </template>

@@ -13,9 +13,9 @@ Template.Challenge.events({
 
     if(answerVar != correct){
       Router.go('failure');
-    }else if (Score.findOne({team_id:user},{challenge_id:question_id})) {
+    }else if (Score.findOne({$and: [{challenge_id:question_id},{team_id:user}]})) {
       console.log("A recored has already been created!")
-      Router.go('completed');
+      Router.go('home');
     }else{
       Score.insert({
         team_id: user,
@@ -35,7 +35,8 @@ Template.Challenge.helpers({
   answered: function() {
     var user = Meteor.userId();
     var question_id = this._id;
-    return Score.findOne({team_id:user},{challenge_id:question_id});
+    var record = Score.findOne({$and:[{challenge_id:question_id},{team_id:user}]});
+    return record;
   }
 });
 
