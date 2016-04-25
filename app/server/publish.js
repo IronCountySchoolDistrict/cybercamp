@@ -8,3 +8,7 @@ Meteor.publish('questions', function () {
 Meteor.publish('score', function () {
   return Score.find();
 });
+
+Meteor.publish('userlist', function () {
+  return Meteor.users.find();
+});

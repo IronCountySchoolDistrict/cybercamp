@@ -13,9 +13,9 @@ Score.attachSchema(new SimpleSchema({
     type: Number,
     label: "Score",
   },
-  submited: {
+  submitted: {
     type: Date,
-    label: "Time Submited",
+    label: "Time Submitted",
   }
 }));
 

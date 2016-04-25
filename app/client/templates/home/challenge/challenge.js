@@ -21,7 +21,7 @@ Template.Challenge.events({
         team_id: user,
         challenge_id: question_id,
         score: points,
-        submited: new Date(),
+        submitted: new Date(),
       });
       Router.go('success');
     };

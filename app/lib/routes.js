@@ -36,6 +36,13 @@ Router.route('/test/failure', {
   where: 'client'
 });
 
+Router.route('/admin', {
+  name: 'admin',
+  controller: 'AdminController',
+  action: 'list',
+  where: 'client'
+});
+
 Router.route('/admin/register', {
   name: 'register',
   controller: 'RegisterController',
