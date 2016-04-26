@@ -12,10 +12,10 @@ Template.Challenge.events({
     var answerVar = event.target.answer.value;
 
     if(answerVar != correct){
-      Router.go('failure');
+      Router.go('failure', {_id:question_id});
     }else if (Score.findOne({$and: [{challenge_id:question_id},{team_id:user}]})) {
       console.log("A recored has already been created!")
-      Router.go('home');
+      Router.go('correct');
     }else{
       Score.insert({
         team_id: user,
@@ -23,7 +23,7 @@ Template.Challenge.events({
         score: points,
         submitted: new Date(),
       });
-      Router.go('success');
+      Router.go('success', {_id:question_id});
     };
   }
 });

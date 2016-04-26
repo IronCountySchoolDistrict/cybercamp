@@ -24,13 +24,19 @@ Router.route('/challenge/:_id', {
   where: 'client'
 });
 
-Router.route('/test/success', {
+Router.route('/test/correct', {
+  name: 'correct',
+  controller: 'QuestionsController',
+  where: 'client'
+});
+
+Router.route('/test/success/:_id', {
   name: 'success',
   controller: 'QuestionsController',
   where: 'client'
 });
 
-Router.route('/test/failure', {
+Router.route('/test/failure/:_id', {
   name: 'failure',
   controller: 'QuestionsController',
   where: 'client'

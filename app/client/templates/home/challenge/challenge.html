@@ -16,6 +16,9 @@
         <input class="btn btn-primary" type=submit value="Submit">
         <a href="/" class="btn btn-danger">Cancel</a>
       </form>
+      {{else}}
+        <div class="alert alert-success">The challenge "{{title}}" has been answered</div>
+        <a href="/" class="btn btn-primary btn-block">Return to Challenges</a>
       {{/unless}}
     {{else}}
       <a class="btn btn-primary" href="/admin/edit/{{_id}}">Edit</a>
