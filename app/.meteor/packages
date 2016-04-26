@@ -25,6 +25,7 @@ accounts-ui
 accounts-password
 session
 alanning:roles
-markdown
 aldeed:delete-button
 momentjs:moment
+perak:markdown
+wtfzn:bootstrap-markdown

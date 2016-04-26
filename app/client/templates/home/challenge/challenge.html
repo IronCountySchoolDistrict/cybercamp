@@ -2,9 +2,9 @@
   <div class="challenge">
     <h2>Challenge: {{title}}</h2>
     <hr>
-    {{#markdown}}
-      {{question}}
-    {{/markdown}}
+    <div class="well">
+      {{#markdown}}{{question}}{{/markdown}}
+    </div>
     <hr>
     {{#if isInRole 'student'}}
       {{#unless answered}}
