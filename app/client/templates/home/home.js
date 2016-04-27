@@ -9,7 +9,11 @@ Template.Home.events({
 /*****************************************************************************/
 Template.Home.helpers({
   questions: function() {
-    return Questions.find();
+    var projection = {fields: {
+      "title": 1,
+      "points": 1,
+    }};
+    return Questions.find({},projection);
   },
   answered: function() {
     var user = Meteor.userId();

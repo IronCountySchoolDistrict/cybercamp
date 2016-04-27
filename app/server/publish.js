@@ -11,4 +11,5 @@ Meteor.publish('score', function () {
 
 Meteor.publish('userlist', function () {
   return Meteor.users.find();
+
 });

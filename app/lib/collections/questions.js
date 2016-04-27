@@ -26,23 +26,27 @@ Questions.attachSchema(new SimpleSchema({
       20,
       25
     ],
-    defaultValue: 5,
+    defaultValue: "Select One",
     label: "Points"
+  },
+  _encrypted: {
+    type: Boolean,
+    label: "Secret"
   }
 }));
 
 if (Meteor.isServer) {
   Questions.allow({
     insert: function (userId, doc) {
-      return true;
+      return Meteor.call('admin', userId);
     },
 
     update: function (userId, doc, fieldNames, modifier) {
-      return true;
+      return Meteor.call('admin', userId);
     },
 
     remove: function (userId, doc) {
-      return true;
+      return Meteor.call('admin', userId);
     }
   });
 }

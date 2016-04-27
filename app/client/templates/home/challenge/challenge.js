@@ -6,10 +6,21 @@ Template.Challenge.events({
     event.preventDefault();
     var question_id = this._id;
     var question = Questions.findOne({_id:question_id});
-    var correct = question.answer;
+    var decrypt = transform(question);
+    var correct = decrypt.answer;
     var points = question.points;
     var user = Meteor.userId();
     var answerVar = event.target.answer.value;
+
+    function transform(doc) {
+      if (Meteor.isClient) {
+        if (doc._encrypted) {
+          doc.answer = CryptoJS.AES.decrypt(doc.answer, Session.get('passphrase')).toString(CryptoJS.enc.Utf8);
+          doc._encrypted = false;
+        }
+      }
+      return doc;
+    };
 
     if(answerVar != correct){
       Router.go('failure', {_id:question_id});

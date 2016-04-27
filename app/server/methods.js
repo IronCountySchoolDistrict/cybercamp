@@ -3,6 +3,14 @@
 /*****************************************************************************/
 
 Meteor.methods({
+  'admin': function(userId){
+    user = Meteor.users.findOne({_id:userId});
+    if(user.roles.indexOf('admin') !== -1){
+      return true;
+    }else {
+      throw new Meteor.Error('not-authorized');
+    }
+  },
   'adminRole': function (userId) {
     Roles.setUserRoles(userId, 'admin');
   },
@@ -20,15 +28,6 @@ Meteor.methods({
         resolve(user);
       })
     }
-        /*function(error,result){
-          if(error){
-            console.log(error.reason);
-            reject(error.reason);
-          }else{
-            var userId = Meteor.userId();
-
-          }
-        })*/
 
   _createUserAsync(userVar, passwordVar)
     .then(userId => {
