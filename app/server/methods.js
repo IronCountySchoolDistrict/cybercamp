@@ -3,6 +3,7 @@
 /*****************************************************************************/
 
 Meteor.methods({
+  
   'admin': function(userId){
     user = Meteor.users.findOne({_id:userId});
     if(user.roles.indexOf('admin') !== -1){

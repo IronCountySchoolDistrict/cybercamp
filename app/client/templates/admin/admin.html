@@ -8,9 +8,20 @@
           <div class="list-group">
             <div class="list-group-item">
               <h4 class="list-group-item-heading">{{username}}
-                <span class="pull-right">{{score}}</span>
+                <span class="pull-right">
+                  {{#if score}}
+                    {{score}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </span>
               </h4>
-              <p class="list-group-item-text">Completed: {{questionsDone}}
+              <p class="list-group-item-text">
+                {{#if questionsDone}}
+                  Completed: {{questionsDone}}
+                {{else}}
+                  Completed: 0
+                {{/if}}
                 <span class="pull-right">
                   {{#if questionsDone}}
                     {{momentFormat timeIn}}

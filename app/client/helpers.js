@@ -13,7 +13,4 @@ Meteor.startup(function () {
   Questions.before.insert(function (userId, doc) {
     return encryptAnswer(doc);
   });
-  Questions.before.update(function (userId, doc) {
-    return encryptAnswer(doc);
-  });
 });

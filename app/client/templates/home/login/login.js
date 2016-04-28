@@ -5,8 +5,12 @@ Template.Login.events({
   'submit form': function(event){
     event.preventDefault();
     var user = event.target.logUser.value;
-    var password = event.target.logPassword.value;
-    Meteor.loginWithPassword(user,password);
+    var password = event.target.logPassword.value
+    Meteor.loginWithPassword(user,password, function(error){
+      if(error){
+        alert("You have entered an invalid username or password");
+      }
+    });
     Router.go('home');
   },
   'click #logout': function(event){

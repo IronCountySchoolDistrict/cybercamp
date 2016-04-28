@@ -2,6 +2,7 @@
 /* EditQuestion: Event Handlers */
 /*****************************************************************************/
 Template.EditQuestion.events({
+
 });
 
 /*****************************************************************************/
@@ -16,6 +17,15 @@ Template.EditQuestion.helpers({
           Router.go('home');
         }
       };
+    },
+    transform: function(doc) {
+      if (Meteor.isClient) {
+        if (doc._encrypted) {
+          doc.answer = CryptoJS.AES.decrypt(doc.answer, Session.get('passphrase')).toString(CryptoJS.enc.Utf8);
+          doc._encrypted = false;
+        }
+      }
+      return doc;
     }
 });
 

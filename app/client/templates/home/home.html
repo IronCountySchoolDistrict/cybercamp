@@ -1,20 +1,31 @@
 <template name="Home">
   <div class="home">
-    <h2>Challenges:</h2>
-    <p>Questions Completed: {{questionsDone}}/{{questionsTotal}}
-      <span class="pull-right">Score: {{totalPoints}}</span>
-    </p>
-    <hr>
-      {{#each questions}}
-        {{#unless answered}}
-          <div class="list-group">
-            <a href="/challenge/{{_id}}" class="list-group-item">
-              <h4 class="list-group-item-heading">{{title}}
-                <span class="pull-right">+{{points}}</span>
-              </h4>
-            </a>
-          </div>
-        {{/unless}}
-      {{/each}}
+    <h2>Challenges:
+    {{#if isInRole 'admin'}}
+      <span class="pull-right">
+        <div class="badge">{{questionsTotal}}</div>
+      </span>
+      <hr>
+    {{/if}}
+    </h2>
+
+    {{#if isInRole 'student'}}
+      <p>Questions Completed: {{questionsDone}}/{{questionsTotal}}
+        <span class="pull-right">Score: {{totalPoints}}</span>
+      </p>
+      <hr>
+    {{/if}}
+
+    {{#each questions}}
+      {{#unless answered}}
+        <div class="list-group">
+          <a href="/challenge/{{_id}}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{title}}
+              <span class="pull-right">+{{points}}</span>
+            </h4>
+          </a>
+        </div>
+      {{/unless}}
+    {{/each}}
   </div>
 </template>
