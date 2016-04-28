@@ -7,7 +7,7 @@ Template.Register.events({
     var userVar = event.target.regUser.value;
     var passwordVar = event.target.regPassword.value;
     var role = event.target.regRole.value;
-
+    
     Meteor.call('createGroup', userVar, passwordVar, role);
 
     event.target.reset();
