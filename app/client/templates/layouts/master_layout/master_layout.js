@@ -1,5 +1,7 @@
 Template.MasterLayout.helpers({
-
+  'users': function() {
+    console.log(Meteor.users.find().fetch().length);
+  }
 });
 
 Template.MasterLayout.events({
