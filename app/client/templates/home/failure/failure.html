@@ -1,0 +1,12 @@
+<template name="Failure">
+  <div class="failure">
+    <h1>Incorrect!</h1>
+    <hr>
+    <div class="alert alert-warning">
+      <p class="alert-adjust">The answer you provided to challenge "{{title}}" was not correct.</p>
+    </div>
+    <br>
+    <a href="/challenge/{{_id}}" class="btn btn-primary btn-block">Return to "{{title}}"</a>
+    <a href="/" class="btn btn-danger btn-block">Return to Challenges</a>
+  </div>
+</template>

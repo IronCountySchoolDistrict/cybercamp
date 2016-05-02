@@ -1,0 +1,29 @@
+<template name="Register">
+  <div class="register">
+    {{#if isInRole 'admin'}}
+      <h1>Register</h1>
+      <hr>
+      <form class="register">
+        <div class="form-group">
+          <label for="user-input">User Name</label>
+          <input type="text" class="form-control" id="user-input" name="regUser">
+        </div>
+        <div class="form-group">
+          <label for="password-input">Password</label>
+          <input type="password" class="form-control" id="password-input" name="regPassword">
+        </div>
+        <div class="form-group">
+          <label for="role-input">Role</label>
+          <select class="form-control" name="regRole">
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register">
+        <a href="/" class="btn btn-danger">Cancel</a>
+      </form>
+    {{else}}
+      {{> NotFound}}
+    {{/if}}
+  </div>
+</template>

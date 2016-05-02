@@ -1,0 +1,39 @@
+<template name="Admin">
+  <div class="admin">
+    {{#if isInRole 'admin'}}
+      <h1>Groups</h1>
+      <hr>
+      {{#each users}}
+        <div class="col-sm-6 col-md-4">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">{{username}}
+                <span class="pull-right">
+                  {{#if score}}
+                    {{score}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </span>
+              </h4>
+              <p class="list-group-item-text">
+                {{#if questionsDone}}
+                  Completed: {{questionsDone}}
+                {{else}}
+                  Completed: 0
+                {{/if}}
+                <span class="pull-right">
+                  {{#if questionsDone}}
+                    {{momentFormat timeIn}}
+                  {{/if}}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      {{> NotFound}}
+    {{/if}}
+  </div>
+</template>

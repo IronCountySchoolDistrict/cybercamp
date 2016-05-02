@@ -1,0 +1,17 @@
+<template name="EditQuestion">
+  <div class="edit-question">
+    {{#if isInRole 'admin'}}
+      <h1>Edit: {{title}}</h1>
+      <hr>
+      {{> quickForm collection="Questions" doc=this id="editQuestionForm" type="update" buttonContent="Update" omitFields="_encrypted"}}
+      <div class="btn-align">
+        <a href="/challenge/{{_id}}" class="btn btn-danger">Cancel</a>
+        <span class="pull-right">
+          {{> quickRemoveButton collection="Questions" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+        </span>
+      </div>
+    {{else}}
+      {{> NotFound}}
+    {{/if}}
+  </div>
+</template>

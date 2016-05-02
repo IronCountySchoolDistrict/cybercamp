@@ -1,0 +1,15 @@
+<template name="CreateQuestion">
+  <div class="create-question">
+
+    {{#if isInRole 'admin'}}
+      <h1>Create Question</h1>
+      <hr>
+      {{> quickForm collection="Questions" id="insertQuestionForm" type="insert" buttonContent="Submit" omitFields="_encrypted"}}
+      <div class="btn-align">
+        <a href="/" class="btn btn-danger">Cancel</a>
+      </div>
+    {{else}}
+      {{> NotFound}}
+    {{/if}}
+  </div>
+</template>

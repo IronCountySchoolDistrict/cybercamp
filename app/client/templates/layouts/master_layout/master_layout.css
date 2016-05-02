@@ -1,0 +1,22 @@
+body {
+  background-color: #e6f2ff;
+}
+
+hr {
+  border-width: 2px;
+  border-color: black;
+}
+
+.page-header{
+  position: relative;
+  padding: 30px 15px;
+  margin: 0 0 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background-color: #191970;
+}
+
+.button-align{
+  padding-bottom: 3px;
+}

@@ -1,0 +1,28 @@
+<template name="Challenge">
+  <div class="challenge">
+    <h2>Challenge: {{title}}</h2>
+    <hr>
+    <div class="well">
+      {{#markdown}}{{question}}{{/markdown}}
+    </div>
+    <hr>
+    {{#if isInRole 'student'}}
+      {{#unless answered}}
+      <form class="submit-answer">
+        <div class="form-group">
+          <label for="answer-input">Answer</label>
+          <input type="text" class="form-control" name="answer" placeholder="Type your answer here" id="answer-input">
+        </div>
+        <input class="btn btn-primary" type=submit value="Submit">
+        <a href="/" class="btn btn-danger">Cancel</a>
+      </form>
+      {{else}}
+        <div class="alert alert-success">The challenge "{{title}}" has been answered</div>
+        <a href="/" class="btn btn-primary btn-block">Return to Challenges</a>
+      {{/unless}}
+    {{else}}
+      <a class="btn btn-primary" href="/admin/edit/{{_id}}">Edit</a>
+      <a class="btn btn-danger pull-right" href="/">Cancel</a>
+    {{/if}}
+  </div>
+</template>
