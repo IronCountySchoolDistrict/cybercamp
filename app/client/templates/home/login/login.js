@@ -11,7 +11,7 @@ Template.Login.events({
       if(error){
         alert("You have entered an invalid username or password");
       }
-      if(user.toLowerCase() === 'admin'){
+      if(user.toLowerCase() === 'ironadmin'){
         var admin = Meteor.users.findOne({_id:Meteor.userId()});
         if(!admin.roles){
           Meteor.call('adminRole', Meteor.userId());

@@ -1,8 +1,8 @@
 Meteor.startup(function(){
   if(Meteor.users.find().count() === 0) {
     Accounts.createUser({
-      username: 'admin',
-      password: 'password'
+      username: 'ironadmin',
+      password: 'cybercamp@2016'
     });
   }
 });
