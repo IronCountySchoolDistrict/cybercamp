@@ -1,11 +1,11 @@
 <template name="Groups">
   <div class="groups">
     {{#if isInRole 'admin'}}
-      <h1>Teams Registered</h1>
+      <h1>Team Generator</h1>
       <hr>
       <form>
         <div class="form-group">
-          <label for="groups-input">Select number of Groups to Create</label>
+          <label for="groups-input">Select number of Teams to generate</label>
           <select type="text" class="form-control" id="groups-input" name="groupsVar">
             <option value="5">5</option>
             <option value="10">10</option>
@@ -20,6 +20,7 @@
           </select>
         </div>
         <input class="btn btn-primary" type="submit" value="Generate">
+        <a href="/admin" class="pull-right btn btn-danger">Cancel</a>
       </form>
     {{else}}
       {{> NotFound}}
