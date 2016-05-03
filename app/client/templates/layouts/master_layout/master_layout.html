@@ -1,19 +1,19 @@
 <template name="MasterLayout">
   <div class="page-header">
     <div class="container">
-      <h2>Iron District Cyber Camp</h2>
+      <h2>Cyber Camp Challenge</h2>
       {{#if currentUser}}
         {{#if isInRole 'admin'}}
           <div class="btn-group button-align" role="group">
-            <button class="btn btn-link">{{#linkTo route="home"}}Home{{/linkTo}}</button>
-            <button class="btn btn-link">{{#linkTo route="admin"}}Admin{{/linkTo}}</button>
+            <button class="btn btn-link">{{#linkTo route="home"}}Challenges{{/linkTo}}</button>
+            <button class="btn btn-link">{{#linkTo route="admin"}}Scores{{/linkTo}}</button>
             <button class="btn btn-link">{{#linkTo route="createQuestion"}}Create{{/linkTo}}</button>
             <button class="btn btn-link">{{#linkTo route="register"}}Register{{/linkTo}}</button>
             <button class="btn btn-link logout">Logout</button>
           </div>
         {{else}}
           <div class="btn-group button-align" role="group">
-            <button class="btn btn-link">{{#linkTo route="home"}}Home{{/linkTo}}</button>
+            <button class="btn btn-link">{{#linkTo route="home"}}Challenges{{/linkTo}}</button>
             <button class="btn btn-link logout">Logout</button>
           </div>
         {{/if}}

@@ -1,7 +1,11 @@
 <template name="Admin">
   <div class="admin">
     {{#if isInRole 'admin'}}
-      <h1>Groups</h1>
+      <h1>Teams Registered
+        <span class="pull-right">
+          <a href="/admin/groups" class="btn btn-primary">Add Teams</a>
+        </span>
+      </h1>
       <hr>
       {{#each users}}
         <div class="col-sm-6 col-md-4">

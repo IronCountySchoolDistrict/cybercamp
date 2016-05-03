@@ -55,6 +55,12 @@ Router.route('/admin/register', {
   where: 'client'
 });
 
+Router.route('/admin/groups', {
+  name: 'groups',
+  controller: 'AdminController',
+  where: 'client'
+});
+
 Router.route('/admin/create', {
   name: 'createQuestion',
   controller: 'QuestionsController',
