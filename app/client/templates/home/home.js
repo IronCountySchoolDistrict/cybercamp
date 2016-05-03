@@ -8,6 +8,9 @@ Template.Home.events({
 /* Home: Helpers */
 /*****************************************************************************/
 Template.Home.helpers({
+  areQuestions: function() {
+    return Questions.find().fetch();
+  },
   questions: function() {
     var projection = {fields: {
       "title": 1,

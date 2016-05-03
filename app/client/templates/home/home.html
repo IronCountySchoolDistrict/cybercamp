@@ -16,16 +16,22 @@
       <hr>
     {{/if}}
 
-    {{#each questions}}
-      {{#unless answered}}
-        <div class="list-group">
-          <a href="/challenge/{{_id}}" class="list-group-item">
-            <h4 class="list-group-item-heading">{{title}}
-              <span class="pull-right">+{{points}}</span>
-            </h4>
-          </a>
-        </div>
-      {{/unless}}
-    {{/each}}
+    {{#if areQuestions}}
+      {{#each questions}}
+        {{#unless answered}}
+          <div class="list-group">
+            <a href="/challenge/{{_id}}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{title}}
+                <span class="pull-right">+{{points}}</span>
+              </h4>
+            </a>
+          </div>
+        {{/unless}}
+      {{/each}}
+    {{else}}
+      <div class="alert alert-warning">
+        There are no challenges at this time.
+      </div>
+    {{/if}}
   </div>
 </template>
