@@ -46,6 +46,9 @@ Template.Admin.helpers({
   },
   momentFormat: function(time) {
     return moment(time).format("HH:mm:ss");
+  },
+  areUsers: function() {
+    return Meteor.users.find({roles: {$in: ['student']}}).fetch();
   }
 });
 

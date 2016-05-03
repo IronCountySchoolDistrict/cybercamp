@@ -7,35 +7,41 @@
         </span>
       </h1>
       <hr>
-      {{#each users}}
-        <div class="col-sm-6 col-md-4">
-          <div class="list-group">
-            <div class="list-group-item">
-              <h4 class="list-group-item-heading">{{username}}
-                <span class="pull-right">
-                  {{#if score}}
-                    {{score}}
-                  {{else}}
-                    0
-                  {{/if}}
-                </span>
-              </h4>
-              <p class="list-group-item-text">
-                {{#if questionsDone}}
-                  Completed: {{questionsDone}}
-                {{else}}
-                  Completed: 0
-                {{/if}}
-                <span class="pull-right">
+      {{#if areUsers}}
+        {{#each users}}
+          <div class="col-sm-6 col-md-4">
+            <div class="list-group">
+              <div class="list-group-item">
+                <h4 class="list-group-item-heading">{{username}}
+                  <span class="pull-right">
+                    {{#if score}}
+                      {{score}}
+                    {{else}}
+                      0
+                    {{/if}}
+                  </span>
+                </h4>
+                <p class="list-group-item-text">
                   {{#if questionsDone}}
-                    {{momentFormat timeIn}}
+                    Completed: {{questionsDone}}
+                  {{else}}
+                    Completed: 0
                   {{/if}}
-                </span>
-              </p>
+                  <span class="pull-right">
+                    {{#if questionsDone}}
+                      {{momentFormat timeIn}}
+                    {{/if}}
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
+        {{/each}}
+      {{else}}
+        <div class="alert alert-warning">
+          There are no teams registered at this time.
         </div>
-      {{/each}}
+      {{/if}}
     {{else}}
       {{> NotFound}}
     {{/if}}
