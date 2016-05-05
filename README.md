@@ -1,6 +1,6 @@
 # cybercamp
 
-`cybercamp` is a webapp to be used to grade the challenges given in the 2016 CyberCamp Challenge.
+`cybercamp` is a webapp for grading the challenges given in the 2016 CyberCamp Challenge.
 
 ### Deploy
 > The deployment process uses [Meteor Up X](https://github.com/arunoda/meteor-up/tree/mupx) to bundle and deploy this Meteor app
