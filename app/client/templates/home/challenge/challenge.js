@@ -7,10 +7,11 @@ Template.Challenge.events({
     var question_id = this._id;
     var question = Questions.findOne({_id:question_id});
     var decrypt = transform(question);
-    var correct = decrypt.answer;
+    var correct = decrypt.answer.toLowerCase();
     var points = question.points;
     var user = Meteor.userId();
     var answerVar = event.target.answer.value;
+    var answerTrim = answerVar.toLowerCase().trim();
 
     function transform(doc) {
       if (Meteor.isClient) {
@@ -22,7 +23,7 @@ Template.Challenge.events({
       return doc;
     };
 
-    if(answerVar != correct){
+    if(answerTrim != correct){
       Router.go('failure', {_id:question_id});
     }else if (Score.findOne({$and: [{challenge_id:question_id},{team_id:user}]})) {
       console.log("A recored has already been created!")
