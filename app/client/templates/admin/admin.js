@@ -10,7 +10,7 @@ Template.Admin.events({
 /*****************************************************************************/
 Template.Admin.helpers({
   users: function() {
-    var userRecord = Meteor.users.find({roles: {$in: ['student']}});
+    var userRecord = Meteor.users.find({roles: {$in: ['student']}}).fetch();
     var scoreRecord = Score.find().fetch();
     var newUserRecord = userRecord.map(currUserRecord => {
       var user_score = scoreRecord.filter(score => currUserRecord._id === score.team_id);
@@ -36,7 +36,7 @@ Template.Admin.helpers({
         return -1
       } else {
         if (a.score != b.score) {
-          a.score > b.score ? -1 : 1;
+          return a.score > b.score ? -1 : 1;
         } else {
           return new Date(b.timeIn) - new Date(a.timeIn) > 0 ? 1 : -1;
         }
